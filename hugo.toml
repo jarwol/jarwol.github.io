@@ -1,0 +1,14 @@
+baseURL = 'https://www.jarwol.com/'
+languageCode = 'en-us'
+title = "jarwol.com - Culture & Code"
+theme = 'paper'
+
+[params]
+    color = 'wheat'
+    math = true
+    linkedin = 'jaredwolinsky'
+    avatar = '/images/headshot.jpg'
+    name = 'Jared Wolinsky'
+    bio = """
+        Hi, I'm Jared. I'm a software engineer and product & tech leader in New York City. Currently I lead Platform Engineering at Sirius XM, where we're applying a product mindset to the developer platform and cloud foundation to build a delightful developer experience for our internal technologists.
+        I write about a mix of leadership/organizational strategy and in-the-weeds engineering topics. I aim for an approachable treatment of relevant concepts combined with a healthy dose of advice for practical application."""
