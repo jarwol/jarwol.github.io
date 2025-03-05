@@ -1,0 +1,1 @@
+- Staying technical as a leader
