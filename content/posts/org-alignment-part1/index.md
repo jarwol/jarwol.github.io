@@ -29,7 +29,7 @@ Alignment is so critical because performance is a vector–it includes direction
 consider a rowing team. Even if the team consists of the strongest individual rowers in the race, the boat won’t move efficiently
 if everyone isn’t rowing in sync toward the finish line, and they’ll lose the race.
 
-How about a less contrived example? Imagine a streaming company that has a goal of decreasing subscriber churn rate. Imagine a streaming company that wants to reduce subscriber churn. The Analytics team identifies a key insight--Subscribers who take more than a minute to find content are much more likely to churn.
+How about a less contrived example? Imagine a streaming company that has a goal of decreasing subscriber churn rate. The Analytics team identifies a key insight--Subscribers who take more than a minute to find content are much more likely to churn.
 Meanwhile, the Content Engineering team meets with the Infrastructure team and learns that the company's storage and bandwidth costs represent a significant and growing portion of overall technology spend. They determine that leveraging a new video format with better compression will result in major savings with only a negligible decrease in stream quality. At first glance, this seems like a good initiative--it materially improves the company's bottom line, but it's an example of organizational misalignment. Reducing operating expenses is not the main focus of company strategy, so it’s unlikely to lead to an outcome that leadership is happy with. It doesn’t matter if the Content Engineering team is firing on all cylinders and shipping code faster than any other team in the company. They’re moving in the wrong direction.
 
 ### Horizontal and vertical alignment
