@@ -49,6 +49,12 @@ $paginator.Pages -}}<!---->
 
 {{- end -}}
 
+{{- if eq $index 0 -}}
+<h1 class="text-3xl font-bold text-black dark:text-white mb-6">
+  Posts
+</h1>
+{{- end -}}
+
 <section class="relative my-10 first-of-type:mt-0 last-of-type:mb-0">
   {{- if gt .Weight 0 -}}
   <span class="mb-1 inline-block text-xs tracking-wider text-orange-500"
@@ -63,6 +69,24 @@ $paginator.Pages -}}<!---->
     >{{- .Title -}}</a
   >
 </section>
+{{- end -}}
+
+<!-- Featured Content Section -->
+{{- $featured := site.Data.features.featured_content -}}
+{{- if $featured -}}
+  <div class="mt-12">
+    <h1 class="text-2xl font-semibold text-black dark:text-white mb-4">Other Content</h1>
+    <ul class="space-y-4">
+      {{- range $featured -}}
+        <li>
+          <a href="{{ .url }}" class="text-lg font-medium text-blue-600 dark:text-blue-400 no-underline hover:underline">
+            {{ .title }}
+          </a>
+          <p class="text-sm text-gray-600 dark:text-gray-400">{{ .description }}</p>
+        </li>
+      {{- end -}}
+    </ul>
+  </div>
 {{- end -}}
 
 <!-- Main Nav -->

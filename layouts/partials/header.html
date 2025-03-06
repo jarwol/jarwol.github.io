@@ -1,0 +1,108 @@
+<header
+  class="mx-auto flex h-[4.5rem] max-w-(--w) px-8 whitespace-nowrap lg:justify-center"
+>
+<div class="relative z-50 flex items-center ltr:mr-auto rtl:ml-auto">
+  <a class="-translate-y-[1px] text-2xl font-medium flex items-center space-x-1" href="{{- `` | absURL -}}">
+    <svg width="84" height="84" viewBox="0 0 190 190" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+      <g clip-path="url(#clip0_1_2)"> 
+      <path d="M23.4637 119.054V112.79L45.7837 101.846C46.6957 101.414 47.5358 101.054 48.3037 100.766C49.1198 100.43 49.7198 100.214 50.1038 100.118C49.6718 100.022 49.0477 99.8304 48.2318 99.5424C47.4158 99.2064 46.5997 98.8224 45.7837 98.3904L23.4637 87.3744V80.8944L54.4238 96.3744V103.574L23.4637 119.054Z" fill="#347B1B"/>
+      <path d="M52.0153 130.934V125.534H86.5753V130.934H52.0153Z" fill="#347B1B"/>
+      <path d="M137.739 123.734L131.691 71.1744H137.883L141.843 110.054C141.939 111.11 142.035 112.214 142.131 113.366C142.227 114.47 142.299 115.526 142.347 116.534C142.443 117.542 142.491 118.382 142.491 119.054C142.587 118.382 142.659 117.542 142.707 116.534C142.803 115.526 142.899 114.47 142.995 113.366C143.139 112.214 143.283 111.11 143.427 110.054L148.323 71.1744H155.019L159.483 110.054C159.627 111.11 159.747 112.214 159.843 113.366C159.987 114.47 160.107 115.526 160.203 116.534C160.347 117.542 160.443 118.382 160.491 119.054C160.539 118.382 160.587 117.542 160.635 116.534C160.731 115.526 160.827 114.47 160.923 113.366C161.067 112.214 161.187 111.11 161.283 110.054L165.387 71.1744H171.291L165.099 123.734H156.963L152.499 84.1344C152.403 83.0304 152.283 81.9504 152.139 80.8944C152.043 79.8384 151.947 78.8544 151.851 77.9424C151.755 77.0304 151.683 76.2864 151.635 75.7104C151.587 76.2864 151.491 77.0304 151.347 77.9424C151.251 78.8544 151.155 79.8384 151.059 80.8944C150.963 81.9504 150.843 83.0304 150.699 84.1344L145.875 123.734H137.739Z" fill="#4395CB"/>
+      <path d="M106.159 124.454C101.119 124.454 97.1587 123.038 94.2787 120.206C91.3987 117.374 89.9587 113.51 89.9587 108.614H96.4387C96.4387 111.83 97.2787 114.326 98.9587 116.102C100.687 117.83 103.087 118.694 106.159 118.694C109.231 118.694 111.607 117.83 113.287 116.102C115.015 114.326 115.879 111.83 115.879 108.614V77.0784H103.279V71.1744H122.359V108.614C122.359 113.51 120.895 117.374 117.967 120.206C115.087 123.038 111.151 124.454 106.159 124.454Z" fill="#4395CB"/>
+      </g>
+      </svg>
+    <span class="leading-none">{{ site.Title }}</span>
+  </a>
+</div>
+
+
+  <div
+    class="btn-menu relative z-50 flex h-[4.5rem] w-[5rem] shrink-0 cursor-pointer flex-col items-center justify-center gap-2.5 lg:hidden ltr:-mr-8 rtl:-ml-8"
+    role="button"
+    aria-label="Menu"
+  ></div>
+
+  {{- $bg_color := $.Scratch.Get "bg_color" -}}<!---->
+
+  <script>
+    // base
+    const htmlClass = document.documentElement.classList;
+    setTimeout(() => {
+      htmlClass.remove('not-ready');
+    }, 10);
+
+    // mobile menu
+    const btnMenu = document.querySelector('.btn-menu');
+    btnMenu.addEventListener('click', () => {
+      htmlClass.toggle('open');
+    });
+
+    // dark theme
+    const metaTheme = document.querySelector('meta[name="theme-color"]');
+    const lightBg = '{{- $bg_color -}}'.replace(/"/g, '');
+    const setDark = (isDark) => {
+      metaTheme.setAttribute('content', isDark ? '#000' : lightBg);
+      htmlClass[isDark ? 'add' : 'remove']('dark');
+      localStorage.setItem('dark', isDark);
+    };
+
+    // init
+    const darkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+    if (htmlClass.contains('dark')) {
+      setDark(true);
+    } else {
+      const darkVal = localStorage.getItem('dark');
+      setDark(darkVal ? darkVal === 'true' : darkScheme.matches);
+    }
+
+    // listen system
+    darkScheme.addEventListener('change', (event) => {
+      setDark(event.matches);
+    });
+
+    // manual switch
+    const btnDark = document.querySelector('.btn-dark');
+    if (btnDark) {
+      btnDark.addEventListener('click', () => {
+        setDark(localStorage.getItem('dark') !== 'true');
+      });
+    }
+  </script>
+
+  <div
+    class="nav-wrapper fixed inset-x-0 top-full z-40 flex h-full flex-col justify-center pb-16 duration-200 select-none lg:static lg:h-auto lg:flex-row lg:!bg-transparent lg:pb-0 lg:transition-none dark:bg-black"
+  >
+    {{- $url := .RelPermalink -}}<!---->
+    {{- with site.Menus.main -}}
+    <nav
+      class="lg:ml-12 lg:flex lg:flex-row lg:items-center lg:space-x-10 rtl:space-x-reverse"
+    >
+      {{- range . -}}
+      <a
+        class="block text-center text-xl leading-[5rem] lg:text-base lg:font-normal"
+        href="{{- .URL -}}"
+        >{{- .Name -}}</a
+      >
+      {{- end -}}
+    </nav>
+    {{- end -}}<!---->
+
+    {{- with $.Scratch.Get "social_list" -}}
+    <nav
+      class="mt-12 flex justify-center space-x-10 lg:mt-0 lg:items-center ltr:lg:ml-14 rtl:space-x-reverse rtl:lg:mr-14 dark:invert"
+    >
+      {{- range . -}}<!---->
+      <a
+        class="h-7 w-7 text-[0px] [background:var(--url)_center_center/cover_no-repeat] lg:h-6 lg:w-6"
+        style="--url: url(./{{- . -}}.svg)"
+        href="{{- if eq . `rss` -}}{{- `index.xml` | absURL -}}{{- else if eq . `mastodon` -}}{{- index site.Params . -}}{{- else -}}{{- if eq . `threads` -}}https://threads.net/{{- else if eq . `bluesky` -}}https://bsky.app/profile/{{- else -}}https://{{- . -}}.com/{{- end -}}{{- if eq . `linkedin` -}}in/{{- end -}}{{- index site.Params . -}}{{- end -}}"
+        target="_blank"
+        rel="{{- if eq . `rss` -}}alternate{{- else -}}me{{- end -}}"
+      >
+        {{- . -}}
+      </a>
+      {{- end -}}<!---->
+    </nav>
+    {{- end -}}<!---->
+  </div>
+</header>
