@@ -49,7 +49,7 @@ Achieving vertical alignment is like a game of telephone, where a little bit of 
 
 {{< figure src="images/alignment-loss.svg" alt="Loss of alignment" width="250px" class="float-right" >}}
 
-Thinking of it mathematically, imagine there is a percentage of the strategy, the coefficient of misalignment, that is miscommunicated or misinterpreted as you move each level lower in the org chart. Let’s conservatively assume it’s 5%. In a 10-person startup with only two levels of hierarchy, we end up with 95% alignment in the worst case. Not bad! But vertical alignment becomes more difficult to achieve as an organization grows and adds more levels to the hierarchy. In a large enterprise with eight levels of hierarchy, for example, the alignment at the bottom level is $0.95^6 = 74%$. The teams doing the work are now more than a quarter misaligned with the company vision. 
+Thinking of it mathematically, imagine there is a percentage of the strategy, the coefficient of misalignment, that is miscommunicated or misinterpreted as you move each level lower in the org chart. Let’s conservatively assume it’s 5%. In a 10-person startup with only two levels of hierarchy, we end up with 95% alignment in the worst case. Not bad! But vertical alignment becomes more difficult to achieve as an organization grows and adds more levels to the hierarchy. In a large enterprise with eight levels of hierarchy, for example, the alignment at the bottom level is $0.95^6 = 74$%. The teams doing the work are now more than a quarter misaligned with the company vision. 
 
 ## Tools for long-term alignment
 
