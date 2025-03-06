@@ -1,6 +1,6 @@
 ---
 title: "The Role of Alignment in High-Performing Teams: Part 1"
-date: 2025-03-02
+date: 2025-03-06
 description: "Exploring strategies for achieving organizational alignment, focusing on vertical and long-term alignment."
 tags: ["alignment", "org"]
 categories: ["Culture", "Leadership"]

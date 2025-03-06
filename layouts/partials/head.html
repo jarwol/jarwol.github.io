@@ -17,6 +17,13 @@
   <!-- author -->
   {{- $site_author := or site.Author.name site.Params.name site.Title -}}
   <!---->
+  {{- if .Params.tags -}}
+  <meta name="keywords" content="culture, code, software engineering, platform engineering, leadership, software development, {{ delimit .Params.tags ", " }}" />
+  {{- else -}}
+  <meta name="keywords" content="culture, code, software engineering, platform engineering, leadership, software development" />
+  {{- end -}}
+  {{- if .Params.categories -}} 
+  {{- end -}}
   {{- if eq .Kind "page" -}}
   <meta name="description" content="{{- .Summary -}}" />
   <meta name="author" content="{{- or .Params.author $site_author -}}" />
