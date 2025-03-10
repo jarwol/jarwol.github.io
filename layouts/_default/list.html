@@ -24,13 +24,9 @@ $paginator.Pages -}}<!---->
   {{- if $avatar_url -}}
   <div
     class="h-32 w-32 shrink-0 rounded-full border-[0.5px] border-black/10 bg-white/50 p-3 ltr:mr-5 ltr:-ml-1 rtl:-mr-1 rtl:ml-5 dark:!bg-white/90"
-    style="width: 9rem; height: 10rem;"
-  >
-    <img
-      class="not-prose my-0 h-full w-full rounded-full !bg-black/5 dark:!bg-black/80"
-      src="{{- $avatar_url -}}"
-      alt="{{- site.Params.name | default site.Title -}}"
-    />
+    style="width: 9rem; height: 10rem;">
+    <img class="not-prose my-0 h-full w-full rounded-full !bg-black/5 dark:!bg-black/80" src="{{- $avatar_url -}}"
+      alt="{{- site.Params.name | default site.Title -}}" />
   </div>
   {{- end -}}<!---->
   {{- if site.Params.name -}}
@@ -57,50 +53,42 @@ $paginator.Pages -}}<!---->
 
 <section class="relative my-10 first-of-type:mt-0 last-of-type:mb-0">
   {{- if gt .Weight 0 -}}
-  <span class="mb-1 inline-block text-xs tracking-wider text-orange-500"
-    >Featured</span
-  >
+  <span class="mb-1 inline-block text-xs tracking-wider text-orange-500">Featured</span>
   {{- end -}}
   <h2 class="!my-0">{{- .Title -}}</h2>
-  <time class="text-xs antialiased opacity-60"
-    >{{- .Date | time.Format ":date_medium" -}}</time
-  >
-  <a class="absolute inset-0 text-[0px]" href="{{- .Permalink -}}"
-    >{{- .Title -}}</a
-  >
+  <time class="text-xs antialiased opacity-60 text-black dark:text-white">{{- .Date | time.Format ":date_medium" -}}</time>
+  <a class="absolute inset-0 text-[0px]" href="{{- .Permalink -}}">{{- .Title -}}</a>
 </section>
 {{- end -}}
 
 <!-- Featured Content Section -->
 {{- $featured := site.Data.features.featured_content -}}
 {{- if $featured -}}
-  <div class="mt-12">
-    <h1 class="text-2xl font-semibold text-black dark:text-white mb-4">Other Content</h1>
-    <ul class="space-y-4">
-      {{- range $featured -}}
-        <li>
-          <a href="{{ .url }}" class="text-lg font-medium text-blue-600 dark:text-blue-400 no-underline hover:underline">
-            {{ .title }}
-          </a>
-          <p class="text-sm text-gray-600 dark:text-gray-400">{{ .description }}</p>
-        </li>
-      {{- end -}}
-    </ul>
-  </div>
+
+<div class="mt-12">
+  <hr/>
+  <h1 class="text-2xl font-semibold text-black dark:text-white mb-4">Other Content</h1>
+  <ul class="space-y-4">
+    {{- range $featured -}}
+    <li>
+      <a href="{{ .url }}" class="text-lg font-medium text-blue-600 dark:text-blue-400 no-underline hover:underline">
+        {{ .title }}
+      </a>
+      <p class="text-sm text-gray-600 dark:text-gray-400">{{ .description }}</p>
+    </li>
+    {{- end -}}
+  </ul>
+</div>
 {{- end -}}
 
 <!-- Main Nav -->
 {{- if gt $paginator.TotalPages 1 -}}
 <nav class="mt-14 flex">
   {{- if $paginator.HasPrev -}}
-  <a class="btn not-prose" href="{{- $paginator.Prev.URL -}}"
-    >← {{- i18n "prev_page" -}}</a
-  >
+  <a class="btn not-prose" href="{{- $paginator.Prev.URL -}}">← {{- i18n "prev_page" -}}</a>
   {{- end -}}<!---->
   {{- if $paginator.HasNext -}}
-  <a class="btn not-prose ml-auto" href="{{- $paginator.Next.URL -}}"
-    >{{- i18n "next_page" -}} →</a
-  >
+  <a class="btn not-prose ml-auto" href="{{- $paginator.Next.URL -}}">{{- i18n "next_page" -}} →</a>
   {{- end -}}
 </nav>
 {{- end -}}<!---->
